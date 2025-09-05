@@ -1,0 +1,119 @@
+/* editdeck.css */
+
+/* Toàn bộ nền */
+/* Áp dụng một gradient màu nền cho toàn bộ trang */
+body {
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header */
+/* Tạo kiểu cho phần header của trang */
+header {
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-bottom: 3px solid #1d4ed8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 {
+    font-size: 1.75rem;
+    font-weight: 800;
+}
+header a {
+    font-weight: 500;
+    transition: color 0.2s;
+}
+header a:hover {
+    color: #bfdbfe; /* Thay đổi màu khi di chuột qua */
+}
+
+/* Nút hành động */
+/* Tạo hiệu ứng chung cho tất cả các nút */
+button {
+    transition: all 0.2s ease;
+    font-weight: 600;
+}
+/* Hiệu ứng "nổi" lên khi di chuột */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+/* Tùy chỉnh riêng cho nút "Add Card" */
+#addCardBtn {
+    background: linear-gradient(90deg, #10b981, #059669);
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+}
+#addCardBtn:hover {
+    background: linear-gradient(90deg, #059669, #047857);
+}
+
+/* Card danh sách */
+/* Tạo kiểu cho mỗi thẻ trong danh sách */
+#cardList .card {
+    background: white;
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+/* Hiệu ứng "nổi" khi di chuột qua thẻ */
+#cardList .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+#cardList p {
+    margin-bottom: 0.25rem;
+}
+
+/* Nút edit & delete */
+/* Tùy chỉnh màu sắc cho các nút sửa và xóa */
+.edit-btn,
+.delete-btn {
+    font-weight: 600;
+}
+.edit-btn {
+    color: #2563eb;
+}
+.edit-btn:hover {
+    color: #1e40af;
+}
+.delete-btn {
+    color: #dc2626;
+}
+.delete-btn:hover {
+    color: #b91c1c;
+}
+
+/* Modal */
+/* Tạo kiểu riêng cho modal và các nút bên trong */
+#cardModal .bg-white {
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.3s ease; /* Áp dụng hoạt ảnh khi xuất hiện */
+}
+#saveCardBtn {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+#saveCardBtn:hover {
+    background: linear-gradient(90deg, #059669, #047857);
+}
+#cancelCardBtn:hover {
+    background: #f3f4f6;
+}
+
+/* Animation */
+/* Định nghĩa hoạt ảnh mờ dần và phóng to */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

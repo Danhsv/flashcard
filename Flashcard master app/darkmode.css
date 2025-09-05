@@ -1,0 +1,17 @@
+
+
+/* .dark là class sẽ được thêm vào <body> khi bật dark mode */
+.dark {
+    /* Màu nền cho dark mode */
+    background-color: #1a202c; 
+    /* Màu chữ cho dark mode, đảm bảo dễ đọc trên nền tối */
+    color: #e2e8f0; 
+}
+
+/* Các tùy chỉnh khác cho các thành phần cụ thể */
+/* Quy tắc này chỉ áp dụng cho các phần tử có class .shadow-md khi dark mode được bật */
+.dark .shadow-md {
+    /* Định nghĩa lại box-shadow để phù hợp với nền tối */
+    box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1),
+                0 2px 4px -1px rgba(255, 255, 255, 0.06);
+}

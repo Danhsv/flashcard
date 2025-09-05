@@ -1,0 +1,101 @@
+/* settings.css */
+
+/* 1. Thiết lập nền và font chữ chung cho toàn bộ trang */
+body {
+    /* Đặt màu nền tối ưu cho chế độ tối (dark mode) */
+    background: #111827;
+    /* Chọn font chữ thân thiện và dễ đọc */
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    /* Màu chữ xám nhạt để tương phản tốt trên nền tối */
+    color: #d1d5db;
+}
+
+/* 2. Ghi đè các lớp màu của Tailwind CSS để thống nhất giao diện */
+/* Các quy tắc này đảm bảo các phần tử có màu sáng trong light mode sẽ chuyển sang màu phù hợp trong dark mode */
+.dark body {
+    background: #111827;
+    color: #d1d5db;
+}
+.dark .text-gray-900 {
+    color: #e5e7eb; /* Chuyển màu chữ xám đậm sang trắng nhạt */
+}
+.dark .text-blue-600 {
+    color: #60a5fa; /* Chuyển màu chữ xanh đậm sang xanh nhạt hơn */
+}
+.dark .text-gray-700 {
+    color: #9ca3af; /* Chuyển màu chữ xám sang xám nhạt hơn */
+}
+
+/* 3. Tùy chỉnh container chính của trang */
+.settings-container {
+    /* Loại bỏ màu nền, bóng đổ và bo góc mặc định của Tailwind để tạo hiệu ứng "nổi" trên trang */
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 2rem;
+    /* Căn nội dung container sang bên trái thay vì ở giữa */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Đặt chiều rộng tối đa không giới hạn để nó chiếm toàn bộ không gian có sẵn */
+    width: 100%;
+    max-width: none;
+}
+
+/* 4. Định hình nút quay về */
+a.absolute {
+    /* Vị trí tuyệt đối ở góc trên cùng bên trái */
+    top: 1rem;
+    left: 1rem;
+    /* Thêm viền trắng nổi bật cho nút */
+    border: 2px solid white;
+    /* Nền trong suốt để hòa vào nền trang */
+    background-color: transparent;
+}
+a.absolute:hover {
+    /* Hiệu ứng khi di chuột vào nút, thêm một lớp nền mờ */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 5. Loại bỏ các hiệu ứng không cần thiết */
+/* Vô hiệu hóa hiệu ứng box-shadow và transform có thể có từ các lớp của Tailwind khi di chuột */
+.settings-container:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+/* 6. Định dạng các trường input */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    /* Đặt màu nền, màu chữ và màu viền phù hợp với chủ đề tối */
+    background: #374151;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+/* 7. Định dạng tiêu đề và nhãn */
+h1, h2 {
+    color: #e5e7eb;
+}
+.text-lg {
+    color: #e5e7eb;
+}
+
+/* 8. Hiệu ứng cho nút chuyển đổi Dark Mode */
+.dark #theme-toggle:checked ~ .dot {
+    /* Dịch chuyển nút gạt sang phải 24px */
+    transform: translateX(24px);
+    /* Đổi màu nền của nút thành màu xanh dương */
+    background: #2563eb;
+}
+
+/* 9. Hiệu ứng hoạt hình (có thể không cần thiết nếu đã có chuyển tiếp) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

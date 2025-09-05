@@ -1,0 +1,150 @@
+/* Reset */
+* {
+  /* Đặt lại lề và đệm của tất cả các phần tử về 0 */
+  margin: 0;
+  padding: 0;
+  /* Sử dụng box-sizing: border-box để chiều rộng và chiều cao bao gồm cả padding và border */
+  box-sizing: border-box;
+  /* Áp dụng phông chữ "Segoe UI" hoặc phông sans-serif khác */
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Body */
+body {
+  /* Thiết lập chiều cao body bằng 100% chiều cao của khung nhìn */
+  height: 100vh;
+  /* Sử dụng Flexbox để căn giữa nội dung theo chiều dọc và ngang */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Đặt màu nền tối */
+  background: #2a2438;
+}
+
+/* Container chính của toàn bộ giao diện */
+.container {
+  display: flex;
+  width: 1000px;
+  height: 600px;
+  background: #332f47;
+  border-radius: 16px;
+  /* Ẩn nội dung tràn ra ngoài */
+  overflow: hidden;
+  /* Thêm hiệu ứng đổ bóng */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Bảng điều khiển bên trái (có hình ảnh) */
+.left-panel {
+  flex: 1; /* Chiếm một nửa không gian có sẵn */
+  /* Thêm hình ảnh nền, không lặp lại và căn giữa */
+  background: url("flashcard.png") no-repeat center/contain;
+  background-color: #2a2438;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* Căn nội dung ở phía dưới */
+  padding: 20px;
+  position: relative;
+  color: #fff;
+  opacity: 0.6; /* Làm mờ hình ảnh để văn bản dễ đọc hơn */
+}
+
+/* Nội dung văn bản bên trong left-panel */
+.left-panel .content {
+  background: none;
+  padding: 10px;
+  border-radius: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.left-panel h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #ffffff;
+  /* Thêm đổ bóng cho văn bản */
+  text-shadow: 0 0 8px rgba(108, 99, 255, 0.9);
+}
+
+.left-panel p {
+  font-size: 16px;
+  opacity: 0.95;
+  color: #ddd;
+}
+
+/* Bảng điều khiển bên phải (chứa form) */
+.right-panel {
+  flex: 1; /* Chiếm một nửa không gian có sẵn */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Khối chứa form đăng nhập */
+.form-box {
+  background: #3e3957;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 350px;
+  color: #fff;
+}
+
+.form-box h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+/* Định dạng các trường input */
+.form-box input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #2a2438;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Viền khi input được focus */
+.form-box input:focus {
+  outline: 2px solid #6c63ff;
+}
+
+/* Định dạng nút bấm */
+.form-box button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #6c63ff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s; /* Hiệu ứng chuyển tiếp mượt mà */
+}
+
+/* Hiệu ứng khi di chuột vào nút bấm */
+.form-box button:hover {
+  background: #574bd6;
+}
+
+/* Định dạng văn bản chứa liên kết */
+.register-text {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Định dạng liên kết */
+.register-text a {
+  color: #6c63ff;
+  text-decoration: none;
+}
+
+/* Hiệu ứng gạch chân khi di chuột vào liên kết */
+.register-text a:hover {
+  text-decoration: underline;
+}

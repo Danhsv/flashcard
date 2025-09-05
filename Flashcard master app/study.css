@@ -1,0 +1,250 @@
+/* study.css */
+
+/* Nhập các biến từ styles.css */
+/* Định nghĩa các biến CSS để quản lý màu sắc và giá trị chung */
+:root {
+  --primary-color: #4f46e5;
+  --secondary-color: #6366f1;
+  --text-color: #1f2937;
+  --bg-color: #f9fafb;
+  --card-bg: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Kiểu dáng chung cho toàn bộ body */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Lớp tiện ích để ẩn các phần tử */
+.hidden {
+  display: none;
+}
+
+/* Các lớp CSS dành riêng cho trang học */
+/* Vùng chứa chính của ứng dụng */
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header của ứng dụng */
+.app-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.app-header p {
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Vùng chứa thẻ flashcard */
+.flashcard-container {
+  display: flex;
+  justify-content: center;
+  perspective: 1000px; /* Tạo hiệu ứng 3D cho các phần tử con */
+  margin-bottom: 2rem;
+}
+
+/* Thẻ flashcard */
+.flashcard {
+  background-color: var(--card-bg-color);
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+  max-width: 500px;
+  min-height: 300px;
+  height: auto;
+  position: relative;
+  transform-style: preserve-3d; /* Giữ không gian 3D cho các phần tử con */
+  transition: transform 0.6s; /* Hiệu ứng lật mượt mà */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Lớp được thêm vào khi thẻ bị lật */
+.flashcard.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Mặt trước và mặt sau của thẻ */
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; /* Ẩn mặt bị quay đi */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background-color: var(--card-bg);
+  z-index: 2; /* Đảm bảo mặt trước ở trên cùng */
+  transform: rotateY(0deg); /* Vị trí ban đầu */
+}
+
+.card-back {
+  background-color: #e2e8f0;
+  transform: rotateY(180deg); /* Vị trí ban đầu của mặt sau */
+}
+
+/* Các nút điều khiển */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Nút đánh giá (Again, Hard, Good, Easy) */
+.difficulty-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+/* Nút hành động (Lật thẻ) */
+.action-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+/* Vùng chứa các chỉ số thống kê */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.stat-box {
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1;
+  margin: 0 0.5rem;
+}
+
+.stat-box h3 {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+}
+
+.stat-box p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Kiểu dáng chung cho tất cả các nút */
+button {
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Hiệu ứng di chuột */
+button:hover {
+  transform: translateY(-2px);
+}
+
+.difficulty-btn {
+  color: white;
+}
+
+/* Tùy chỉnh màu sắc cho từng nút đánh giá */
+.btn-again {
+  background-color: #ef4444;
+}
+
+.btn-hard {
+  background-color: #f97316;
+}
+
+.btn-good {
+  background-color: #10b981;
+}
+
+.btn-easy {
+  background-color: #3b82f6;
+}
+
+.action-btn {
+  background-color: #cbd5e1;
+  color: #1f2937;
+}
+
+.action-btn:hover {
+  background-color: #94a3b8;
+}
+
+/* Vùng chứa hình ảnh */
+.card-image-container {
+  margin-top: 15px;
+  max-width: 100%;
+  max-height: 180px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  box-sizing: border-box;
+}
+
+/* Tùy chỉnh ảnh bên trong vùng chứa */
+.card-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Đảm bảo ảnh vừa khung mà không bị méo */
+  border-radius: 6px;
+  display: block;
+}
+
+/* Nội dung văn bản trong thẻ */
+.card-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-content h2 {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  max-width: 100%;
+}
